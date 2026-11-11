@@ -5,16 +5,16 @@ import { ConceptLuxuryViolet } from '../components/concepts/ConceptLuxuryViolet'
 
 export const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8F9FC] text-[#242630] font-sans">
-      {/* Floating Sticky Luxury Navbar with Glass Dropdowns */}
+    <div className="min-h-screen flex flex-col bg-[#F4F7F6] text-[#253331] font-sans">
+      {/* Floating Light Navbar with Dark Typography (Visual Display Only) */}
       <LuxuryNavbar />
 
-      {/* Luxury Platinum & Violet Homepage Concept 03 Content */}
+      {/* Luxury Deep Teal & Platinum Mint Homepage Content */}
       <main className="flex-grow">
         <ConceptLuxuryViolet />
       </main>
 
-      {/* Luxury Footer with Verified Details, Map & Visual Navigation */}
+      {/* Luxury Deep Teal Enterprise Footer */}
       <LuxuryFooter />
     </div>
   );

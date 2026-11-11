@@ -15,56 +15,85 @@ export default {
     },
     extend: {
       colors: {
-        // ScoreLabs inspired Cyber Teal & Deep Navy Palette
-        teal: {
-          50: '#F0FDF9',
-          100: '#CCFBF1',
-          200: '#99F6E4',
-          300: '#5EEAD4',
-          400: '#2DD4BF',
-          500: '#00A896', // Primary Teal
-          600: '#028090', // Deep Cyan / Teal
-          700: '#0F766E',
-          glow: 'rgba(0, 168, 150, 0.25)',
+        // Luxury Deep Teal and Platinum Visual Identity
+        deepteal: {
+          light: '#0D4F4E',
+          DEFAULT: '#073B3A', // Deep Teal: #073B3A
+          dark: '#052A29',
+          deepest: '#031D1C',
+          glow: 'rgba(7, 59, 58, 0.35)',
         },
-        navy: {
-          950: "#051329", // Ultra Deep Navy / Black
-          900: "#0B1D3A", // ScoreLabs Deep Navy
-          850: "#0F284E",
-          800: "#133565",
-          700: "#1B4783",
-          600: "#2563EB", // Vibrant Blue
-          500: "#3B82F6",
-          100: "#E2E8F0",
-          50: "#F8FAFC",
+        pearl: {
+          50: '#FFFFFF',
+          100: '#F9FBFA',
+          DEFAULT: '#F4F7F6', // Pearl White: #F4F7F6
+          200: '#E9EFEF',
+          300: '#DFE7E5',
+          400: '#CAD5D2',
+        },
+        platinum: {
+          light: '#C1DCD7',
+          DEFAULT: '#A9C7C2', // Platinum Mint: #A9C7C2
+          dark: '#86ABA5',
+          darker: '#658D87',
+          border: 'rgba(169, 199, 194, 0.40)',
+          glow: 'rgba(169, 199, 194, 0.25)',
         },
         graphite: {
-          DEFAULT: '#0A1628',
-          light: '#14253E',
-          lighter: '#1E3555',
-          muted: '#64748B',
-          border: 'rgba(255, 255, 255, 0.12)',
+          light: '#364845',
+          DEFAULT: '#253331', // Graphite: #253331
+          dark: '#1B2625',
+          black: '#121B1A',
+          border: 'rgba(169, 199, 194, 0.18)',
         },
-        orange: {
-          accent: '#FF7A00', // Reference Image 4 orange highlight
-          hover: '#FF9124',
+        // Backward compatibility mappings for existing utility classes
+        titanium: {
+          50: '#FFFFFF',
+          100: '#F9FBFA',
+          DEFAULT: '#F4F7F6',
+          200: '#E9EFEF',
+          300: '#DFE7E5',
+          400: '#CAD5D2',
         },
-        // Two-color compatibility tokens
-        violet: {
-          royal: '#00A896', // Remapped to primary teal for seamless integration
-          hover: '#028090',
-          soft: '#E6FAF6',
+        champagne: {
+          light: '#C1DCD7',
+          DEFAULT: '#A9C7C2',
+          dark: '#86ABA5',
+          border: 'rgba(169, 199, 194, 0.40)',
+          glow: 'rgba(169, 199, 194, 0.25)',
+        },
+        teal: {
+          50: '#F4F7F6',
+          100: '#E9EFEF',
+          200: '#C1DCD7',
+          300: '#A9C7C2',
+          400: '#A9C7C2',
+          500: '#073B3A',
+          600: '#052A29',
+          700: '#031D1C',
+          glow: 'rgba(169, 199, 194, 0.25)',
+        },
+        navy: {
+          950: "#031D1C",
+          900: "#052A29",
+          850: "#073B3A",
+          800: "#1B2625",
+          700: "#253331",
+          600: "#364845",
+          500: "#495F5C",
+          100: "#E9EFEF",
+          50: "#F4F7F6",
         },
         corporate: {
-          navy: "#071B49",
-          blue: "#063B83",
-          electric: "#087FE5",
-          cyan: "#08B9E8",
-          surface: "#F3F7FC",
-          charcoal: "#18243A",
-          dark: "#040F2B",
-          border: "rgba(8, 185, 232, 0.2)",
-          borderSoft: "rgba(7, 27, 73, 0.1)",
+          navy: "#073B3A",
+          blue: "#253331",
+          electric: "#A9C7C2",
+          cyan: "#A9C7C2",
+          surface: "#F4F7F6",
+          charcoal: "#253331",
+          dark: "#052A29",
+          border: "rgba(169, 199, 194, 0.35)",
+          borderSoft: "rgba(7, 59, 58, 0.12)",
         },
       },
       fontFamily: {
