@@ -60,19 +60,11 @@ export const LuxuryFooter: React.FC = () => {
           {/* Brand Column (4 cols) */}
           <div className="lg:col-span-4 space-y-5">
             <div className="flex items-center gap-3">
-              <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#031D1C] flex items-center justify-center border border-[#A9C7C2]/40 shadow-md">
-                <span className="text-xl font-black text-[#F4F7F6] font-heading">
-                  Z<span className="text-[#A9C7C2]">.</span>
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold tracking-tight text-[#F4F7F6] font-heading leading-tight">
-                  Zisan<span className="text-[#A9C7C2] font-light">Tech</span>
-                </span>
-                <span className="text-[9px] tracking-widest uppercase font-semibold text-[#CAD5D2]">
-                  Global Enterprise Consulting
-                </span>
-              </div>
+              <img
+                src="/zisantech_brand_logo_dark_bg.png"
+                alt="ZisanTech - Innovate • Develop • Grow"
+                className="h-11 sm:h-12 w-auto object-contain filter drop-shadow-md"
+              />
             </div>
 
             <p className="text-xs text-[#CAD5D2] leading-relaxed max-w-sm">

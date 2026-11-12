@@ -102,21 +102,13 @@ export const LuxuryNavbar: React.FC = () => {
           }`}
         >
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center gap-3 cursor-default select-none">
-              <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#073B3A] to-[#052A29] flex items-center justify-center border border-[#A9C7C2]/40 shadow-sm">
-                <span className="text-lg font-black tracking-tighter text-[#F4F7F6] font-heading">
-                  Z<span className="text-[#A9C7C2]">.</span>
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold tracking-tight text-[#073B3A] font-heading leading-tight">
-                  Zisan<span className="text-[#253331] font-light">Tech</span>
-                </span>
-                <span className="text-[9px] tracking-widest uppercase font-semibold text-[#495F5C]">
-                  Enterprise SAP Advisory
-                </span>
-              </div>
+            {/* Logo: Polished 3D ZisanTech Brand Logo */}
+            <div className="flex items-center gap-3 cursor-default select-none group">
+              <img
+                src="/zisantech_brand_logo_transparent.png"
+                alt="ZisanTech - Innovate • Develop • Grow"
+                className="h-10 sm:h-11 w-auto object-contain filter drop-shadow-sm group-hover:scale-[1.02] transition-transform duration-300"
+              />
             </div>
 
             {/* Desktop Navigation Links with Interactive Visual Dropdowns */}
