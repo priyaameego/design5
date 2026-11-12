@@ -59,11 +59,11 @@ export const LuxuryFooter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Brand Column (4 cols) */}
           <div className="lg:col-span-4 space-y-5">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               <img
                 src="/zisantech_brand_logo_dark_bg.png"
                 alt="ZisanTech - Innovate • Develop • Grow"
-                className="h-11 sm:h-12 w-auto object-contain filter drop-shadow-md"
+                className="h-14 sm:h-16 w-auto object-contain filter drop-shadow-md"
               />
             </div>
 

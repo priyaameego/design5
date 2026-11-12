@@ -102,12 +102,12 @@ export const LuxuryNavbar: React.FC = () => {
           }`}
         >
           <div className="flex items-center justify-between">
-            {/* Logo: Polished 3D ZisanTech Brand Logo */}
-            <div className="flex items-center gap-3 cursor-default select-none group">
+            {/* Logo: Polished 3D ZisanTech Brand Logo (Prominent Size) */}
+            <div className="flex items-center cursor-default select-none group py-0.5">
               <img
                 src="/zisantech_brand_logo_transparent.png"
                 alt="ZisanTech - Innovate • Develop • Grow"
-                className="h-10 sm:h-11 w-auto object-contain filter drop-shadow-sm group-hover:scale-[1.02] transition-transform duration-300"
+                className="h-12 sm:h-14 lg:h-16 w-auto object-contain filter drop-shadow-md group-hover:scale-[1.03] transition-transform duration-300"
               />
             </div>
 
