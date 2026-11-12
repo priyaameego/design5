@@ -16,6 +16,17 @@ import { COMPANY_INFO } from '../data/siteData';
 const CURRENT_YEAR = new Date().getFullYear();
 
 export const LuxuryFooter: React.FC = () => {
+  const scrollToSection = (id: string) => {
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <footer className="bg-[#052A29] text-[#DFE7E5] font-sans border-t border-[#A9C7C2]/25 relative overflow-hidden">
       {/* Subtle Deep Teal and Platinum Mint lighting ambiance */}
@@ -40,15 +51,22 @@ export const LuxuryFooter: React.FC = () => {
             </div>
 
             <div className="flex flex-wrap items-center gap-4">
-              <span className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 hover:border-[#A9C7C2]/60 hover:bg-white/10 transition-all text-xs font-semibold text-[#F4F7F6] cursor-default select-none">
+              <a
+                href={`tel:${COMPANY_INFO.primaryPhone}`}
+                className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 hover:border-[#A9C7C2]/60 hover:bg-white/10 transition-all text-xs font-semibold text-[#F4F7F6] cursor-pointer"
+              >
                 <Phone className="w-4 h-4 text-[#A9C7C2]" />
                 <span>{COMPANY_INFO.primaryPhone}</span>
-              </span>
+              </a>
 
-              <span className="btn-luxury-platinum flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-xs font-bold cursor-default select-none shadow-lg shadow-[#073B3A]/30">
+              <button
+                type="button"
+                onClick={() => scrollToSection('contact')}
+                className="btn-luxury-platinum flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-xs font-bold cursor-pointer shadow-lg shadow-[#073B3A]/30 transition-transform hover:scale-105"
+              >
                 <Mail className="w-4 h-4" />
                 <span>Initiate RFP Enquiry</span>
-              </span>
+              </button>
             </div>
           </div>
         </div>
@@ -59,7 +77,10 @@ export const LuxuryFooter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Brand Column (4 cols) */}
           <div className="lg:col-span-4 space-y-5">
-            <div className="inline-flex items-center p-2 sm:p-2.5 rounded-2xl bg-[#F4F7F6] border border-[#A9C7C2]/40 shadow-xl shadow-black/20">
+            <div
+              onClick={() => scrollToSection('top')}
+              className="inline-flex items-center p-2 sm:p-2.5 rounded-2xl bg-[#F4F7F6] border border-[#A9C7C2]/40 shadow-xl shadow-black/20 cursor-pointer hover:scale-105 transition-transform"
+            >
               <img
                 src="/zisantech_logo_badge_light.png"
                 alt="ZisanTech - Innovate • Develop • Grow"
@@ -79,34 +100,42 @@ export const LuxuryFooter: React.FC = () => {
               </div>
               <div className="flex items-center gap-2.5 text-[#F4F7F6]">
                 <Phone className="w-4 h-4 text-[#A9C7C2] flex-shrink-0" />
-                <span>+91 87978 18499</span>
+                <a href="tel:+918797818499" className="hover:text-[#A9C7C2] transition-colors">
+                  +91 87978 18499
+                </a>
               </div>
               <div className="flex items-center gap-2.5 text-[#F4F7F6]">
                 <Mail className="w-4 h-4 text-[#A9C7C2] flex-shrink-0" />
-                <span>info@zisantech.com</span>
+                <a href="mailto:info@zisantech.com" className="hover:text-[#A9C7C2] transition-colors">
+                  info@zisantech.com
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Column 2: Navigation Labels (Visual Display Only) (2 cols) */}
+          {/* Column 2: Navigation Links (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#A9C7C2] font-semibold">
               Navigation
             </h4>
             <ul className="space-y-2.5 text-xs text-[#CAD5D2]">
               {[
-                'Home',
-                'About Us',
-                'Our Services',
-                'Industries',
-                'SAP Training',
-                'Contact Us'
+                { name: 'Home', id: 'top' },
+                { name: 'About Us', id: 'about' },
+                { name: 'Our Services', id: 'services' },
+                { name: 'Industries', id: 'industries' },
+                { name: 'SAP Training', id: 'skills' },
+                { name: 'Contact Us', id: 'contact' }
               ].map((link, idx) => (
                 <li key={idx}>
-                  <span className="cursor-default select-none text-[#CAD5D2] flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection(link.id)}
+                    className="cursor-pointer text-[#CAD5D2] hover:text-[#A9C7C2] flex items-center gap-1 transition-colors text-left"
+                  >
                     <ChevronRight className="w-3 h-3 text-[#A9C7C2]" />
-                    <span>{link}</span>
-                  </span>
+                    <span>{link.name}</span>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -127,10 +156,14 @@ export const LuxuryFooter: React.FC = () => {
                 'E-Invoice & Bank Integration'
               ].map((srv, idx) => (
                 <li key={idx}>
-                  <span className="cursor-default select-none text-[#CAD5D2] flex items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection('services')}
+                    className="cursor-pointer text-[#CAD5D2] hover:text-[#A9C7C2] flex items-center gap-1.5 transition-colors text-left"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#A9C7C2]"></span>
                     <span>{srv}</span>
-                  </span>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -150,13 +183,15 @@ export const LuxuryFooter: React.FC = () => {
                 'Steel',
                 'Pharma'
               ].map((ind, idx) => (
-                <div
+                <button
                   key={idx}
-                  className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-left text-[#F4F7F6] flex items-center justify-between cursor-default select-none"
+                  type="button"
+                  onClick={() => scrollToSection('industries')}
+                  className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 hover:border-[#A9C7C2]/40 text-left text-[#F4F7F6] hover:text-[#A9C7C2] flex items-center justify-between cursor-pointer transition-all"
                 >
                   <span>{ind}</span>
                   <ArrowUpRight className="w-3 h-3 text-[#A9C7C2]" />
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -170,7 +205,7 @@ export const LuxuryFooter: React.FC = () => {
           <div className="flex items-center gap-6 font-mono text-[11px]">
             <span className="text-[#A9C7C2]">Deep Teal & Platinum Mint Edition</span>
             <span>•</span>
-            <span>Non-SAP Entity / Official Enterprise IT Partner</span>
+            <span>Enterprise SAP & IT Solutions</span>
           </div>
         </div>
       </div>

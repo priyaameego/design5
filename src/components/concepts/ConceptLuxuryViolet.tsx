@@ -318,6 +318,17 @@ export const ConceptLuxuryViolet: React.FC = () => {
     touchStartXRef.current = null;
   };
 
+  const scrollToSection = (id: string) => {
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
@@ -413,14 +424,22 @@ export const ConceptLuxuryViolet: React.FC = () => {
 
                   {/* CTA Buttons */}
                   <div className="flex flex-wrap items-center gap-4 pt-2">
-                    <span className="px-7 py-3.5 rounded-xl bg-[#A9C7C2] text-[#052A29] text-sm font-bold tracking-wide transition-all shadow-xl shadow-[#073B3A]/40 flex items-center gap-2 cursor-default select-none border border-[#C1DCD7]">
+                    <button
+                      type="button"
+                      onClick={() => scrollToSection('services')}
+                      className="px-7 py-3.5 rounded-xl bg-[#A9C7C2] hover:bg-[#C1DCD7] text-[#052A29] text-sm font-bold tracking-wide transition-all shadow-xl shadow-[#073B3A]/40 flex items-center gap-2 cursor-pointer border border-[#C1DCD7]"
+                    >
                       <span>Our Services →</span>
                       <ArrowRight className="w-4 h-4 text-[#052A29]" />
-                    </span>
+                    </button>
 
-                    <span className="px-7 py-3.5 rounded-xl bg-transparent text-[#F4F7F6] text-sm font-bold tracking-wide transition-all border border-[#A9C7C2]/50 flex items-center gap-2 cursor-default select-none">
+                    <button
+                      type="button"
+                      onClick={() => scrollToSection('contact')}
+                      className="px-7 py-3.5 rounded-xl bg-transparent hover:bg-white/10 text-[#F4F7F6] text-sm font-bold tracking-wide transition-all border border-[#A9C7C2]/50 hover:border-[#A9C7C2] flex items-center gap-2 cursor-pointer"
+                    >
                       <span>Get Consultation</span>
-                    </span>
+                    </button>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -643,10 +662,14 @@ export const ConceptLuxuryViolet: React.FC = () => {
               </motion.div>
 
               <motion.div variants={fadeInUp} className="pt-4">
-                <span className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#073B3A] text-[#F4F7F6] text-xs font-bold tracking-wider uppercase shadow-md border border-[#A9C7C2]/40 cursor-default select-none">
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('services')}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#073B3A] hover:bg-[#052A29] text-[#F4F7F6] text-xs font-bold tracking-wider uppercase shadow-md border border-[#A9C7C2]/40 cursor-pointer transition-colors"
+                >
                   <span>Explore Capabilities</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#A9C7C2]" />
-                </span>
+                </button>
               </motion.div>
             </motion.div>
           </div>
@@ -1036,11 +1059,12 @@ export const ConceptLuxuryViolet: React.FC = () => {
               return (
                 <motion.div
                   key={service.id}
+                  onClick={() => scrollToSection('contact')}
                   initial={{ opacity: 0, y: 22 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (index % 6) * 0.08 }}
-                  className="group relative rounded-3xl bg-[#052A29] border border-[#A9C7C2]/25 hover:border-[#A9C7C2]/70 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#031D1C]/60 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between"
+                  className="group relative rounded-3xl bg-[#052A29] border border-[#A9C7C2]/25 hover:border-[#A9C7C2]/70 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#031D1C]/60 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between cursor-pointer"
                 >
                   {/* Top Image Composition with Overlay & Hover Zoom */}
                   <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#031D1C]">
@@ -1354,7 +1378,8 @@ export const ConceptLuxuryViolet: React.FC = () => {
             {INDUSTRIES.map((ind, index) => (
               <div
                 key={ind.id}
-                className="group relative rounded-3xl overflow-hidden bg-[#052A29] border border-[#A9C7C2]/20 hover:border-[#A9C7C2]/60 shadow-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between min-h-[360px]"
+                onClick={() => scrollToSection('contact')}
+                className="group relative rounded-3xl overflow-hidden bg-[#052A29] border border-[#A9C7C2]/20 hover:border-[#A9C7C2]/60 shadow-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between min-h-[360px] cursor-pointer"
               >
                 <div className="absolute inset-0 z-0">
                   <img

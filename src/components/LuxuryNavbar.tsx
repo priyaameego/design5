@@ -61,6 +61,19 @@ export const LuxuryNavbar: React.FC = () => {
     setMobileExpanded((prev) => (prev === menuName ? null : menuName));
   };
 
+  const scrollToSection = (id: string) => {
+    setActiveDropdown(null);
+    setMobileMenuOpen(false);
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Top Utility Ribbon in Deep Teal */}
@@ -79,15 +92,21 @@ export const LuxuryNavbar: React.FC = () => {
           </div>
 
           <div className="flex items-center space-x-5 font-mono text-xs">
-            <span className="flex items-center gap-1.5 text-[#DFE7E5] cursor-default select-none">
+            <a
+              href={`tel:${COMPANY_INFO.primaryPhone}`}
+              className="flex items-center gap-1.5 text-[#DFE7E5] hover:text-[#A9C7C2] transition-colors"
+            >
               <Phone className="w-3.5 h-3.5 text-[#A9C7C2]" />
               <span>{COMPANY_INFO.primaryPhone}</span>
-            </span>
+            </a>
             <span className="text-white/20">|</span>
-            <span className="flex items-center gap-1.5 text-[#DFE7E5] cursor-default select-none">
+            <a
+              href={`mailto:${COMPANY_INFO.primaryEmail}`}
+              className="flex items-center gap-1.5 text-[#DFE7E5] hover:text-[#A9C7C2] transition-colors"
+            >
               <Mail className="w-3.5 h-3.5 text-[#A9C7C2]" />
               <span>{COMPANY_INFO.primaryEmail}</span>
-            </span>
+            </a>
           </div>
         </div>
       </div>
@@ -102,21 +121,29 @@ export const LuxuryNavbar: React.FC = () => {
           }`}
         >
           <div className="flex items-center justify-between">
-            {/* Logo: Polished 3D ZisanTech Brand Logo (Prominent Size) */}
-            <div className="flex items-center cursor-default select-none group py-0.5">
+            {/* Logo: Polished 3D ZisanTech Brand Logo */}
+            <button
+              type="button"
+              onClick={() => scrollToSection('top')}
+              className="flex items-center cursor-pointer group py-0.5 focus:outline-none"
+            >
               <img
                 src="/zisantech_brand_logo_transparent.png"
                 alt="ZisanTech - Innovate • Develop • Grow"
-                className="h-12 sm:h-14 lg:h-16 w-auto object-contain filter drop-shadow-md group-hover:scale-[1.03] transition-transform duration-300"
+                className="h-11 sm:h-13 lg:h-15 w-auto object-contain filter drop-shadow-md group-hover:scale-[1.03] transition-transform duration-300"
               />
-            </div>
+            </button>
 
-            {/* Desktop Navigation Links with Interactive Visual Dropdowns */}
+            {/* Desktop Navigation Links with Interactive Dropdowns */}
             <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
               {/* Home */}
-              <span className="px-3 py-2 text-sm font-semibold text-[#073B3A] rounded-lg cursor-default select-none transition-colors">
+              <button
+                type="button"
+                onClick={() => scrollToSection('top')}
+                className="px-3 py-2 text-sm font-semibold text-[#073B3A] hover:bg-[#073B3A]/5 rounded-lg cursor-pointer transition-colors"
+              >
                 Home
-              </span>
+              </button>
 
               {/* About Us ▼ */}
               <div
@@ -126,8 +153,8 @@ export const LuxuryNavbar: React.FC = () => {
               >
                 <button
                   type="button"
-                  onClick={() => toggleDropdown('about')}
-                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-[#253331] hover:text-[#073B3A] rounded-lg transition-colors cursor-pointer select-none group"
+                  onClick={() => scrollToSection('about')}
+                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-[#253331] hover:text-[#073B3A] hover:bg-[#073B3A]/5 rounded-lg transition-colors cursor-pointer group"
                 >
                   <span>About Us</span>
                   <ChevronDown
@@ -158,7 +185,8 @@ export const LuxuryNavbar: React.FC = () => {
                         ].map((item, idx) => (
                           <div
                             key={idx}
-                            className="px-3 py-2 rounded-xl hover:bg-white/5 transition-colors cursor-default select-none"
+                            onClick={() => scrollToSection('about')}
+                            className="px-3 py-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer"
                           >
                             <div className="text-xs font-semibold text-[#F4F7F6]">{item.title}</div>
                             <div className="text-[11px] text-[#CAD5D2]">{item.desc}</div>
@@ -178,8 +206,8 @@ export const LuxuryNavbar: React.FC = () => {
               >
                 <button
                   type="button"
-                  onClick={() => toggleDropdown('services')}
-                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-[#253331] hover:text-[#073B3A] rounded-lg transition-colors cursor-pointer select-none group"
+                  onClick={() => scrollToSection('services')}
+                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-[#253331] hover:text-[#073B3A] hover:bg-[#073B3A]/5 rounded-lg transition-colors cursor-pointer group"
                 >
                   <span>Our Services</span>
                   <ChevronDown
@@ -212,7 +240,8 @@ export const LuxuryNavbar: React.FC = () => {
                         ].map((item, idx) => (
                           <div
                             key={idx}
-                            className="px-3 py-2 rounded-xl hover:bg-white/5 transition-colors cursor-default select-none"
+                            onClick={() => scrollToSection('services')}
+                            className="px-3 py-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer"
                           >
                             <div className="text-xs font-semibold text-[#F4F7F6]">{item.title}</div>
                             <div className="text-[11px] text-[#CAD5D2]">{item.desc}</div>
@@ -232,8 +261,8 @@ export const LuxuryNavbar: React.FC = () => {
               >
                 <button
                   type="button"
-                  onClick={() => toggleDropdown('industries')}
-                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-[#253331] hover:text-[#073B3A] rounded-lg transition-colors cursor-pointer select-none group"
+                  onClick={() => scrollToSection('industries')}
+                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-[#253331] hover:text-[#073B3A] hover:bg-[#073B3A]/5 rounded-lg transition-colors cursor-pointer group"
                 >
                   <span>Industries</span>
                   <ChevronDown
@@ -266,7 +295,8 @@ export const LuxuryNavbar: React.FC = () => {
                         ].map((ind, idx) => (
                           <div
                             key={idx}
-                            className="px-3 py-1.5 rounded-xl hover:bg-white/5 transition-colors cursor-default select-none"
+                            onClick={() => scrollToSection('industries')}
+                            className="px-3 py-1.5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer"
                           >
                             <div className="text-xs font-semibold text-[#F4F7F6]">{ind.name}</div>
                             <div className="text-[10px] text-[#A9C7C2]">{ind.tag}</div>
@@ -286,8 +316,8 @@ export const LuxuryNavbar: React.FC = () => {
               >
                 <button
                   type="button"
-                  onClick={() => toggleDropdown('training')}
-                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-[#253331] hover:text-[#073B3A] rounded-lg transition-colors cursor-pointer select-none group"
+                  onClick={() => scrollToSection('skills')}
+                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-[#253331] hover:text-[#073B3A] hover:bg-[#073B3A]/5 rounded-lg transition-colors cursor-pointer group"
                 >
                   <span>SAP Training</span>
                   <ChevronDown
@@ -317,7 +347,8 @@ export const LuxuryNavbar: React.FC = () => {
                         ].map((track, idx) => (
                           <div
                             key={idx}
-                            className="px-3 py-2 rounded-xl hover:bg-white/5 transition-colors cursor-default select-none"
+                            onClick={() => scrollToSection('skills')}
+                            className="px-3 py-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer"
                           >
                             <div className="text-xs font-semibold text-[#F4F7F6]">{track.title}</div>
                             <div className="text-[11px] text-[#CAD5D2]">{track.desc}</div>
@@ -330,17 +361,25 @@ export const LuxuryNavbar: React.FC = () => {
               </div>
 
               {/* Contact Us */}
-              <span className="px-3 py-2 text-sm font-semibold text-[#253331] hover:text-[#073B3A] rounded-lg cursor-default select-none transition-colors">
+              <button
+                type="button"
+                onClick={() => scrollToSection('contact')}
+                className="px-3 py-2 text-sm font-semibold text-[#253331] hover:text-[#073B3A] hover:bg-[#073B3A]/5 rounded-lg cursor-pointer transition-colors"
+              >
                 Contact Us
-              </span>
+              </button>
             </div>
 
-            {/* Right Action: Get Consultation CTA (Visual Display Only) */}
+            {/* Right Action: Get Consultation CTA Button */}
             <div className="hidden sm:flex items-center gap-3">
-              <span className="px-5 py-2.5 rounded-xl bg-[#073B3A] text-[#F4F7F6] border border-[#A9C7C2]/50 text-xs font-bold tracking-wide transition-all shadow-md shadow-[#073B3A]/20 flex items-center gap-2 cursor-default select-none">
+              <button
+                type="button"
+                onClick={() => scrollToSection('contact')}
+                className="px-5 py-2.5 rounded-xl bg-[#073B3A] text-[#F4F7F6] hover:bg-[#052A29] border border-[#A9C7C2]/50 text-xs font-bold tracking-wide transition-all shadow-md shadow-[#073B3A]/20 flex items-center gap-2 cursor-pointer group"
+              >
                 <span>Get Consultation</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#A9C7C2]" />
-              </span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#A9C7C2] group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
 
             {/* Mobile Hamburger Menu Button */}
@@ -348,7 +387,7 @@ export const LuxuryNavbar: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl bg-white border border-[#CAD5D2] text-[#073B3A] hover:bg-[#E9EFEF] transition-colors"
+                className="p-2 rounded-xl bg-white border border-[#CAD5D2] text-[#073B3A] hover:bg-[#E9EFEF] transition-colors cursor-pointer"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -358,7 +397,7 @@ export const LuxuryNavbar: React.FC = () => {
         </nav>
       </div>
 
-      {/* Mobile Drawer (Responsive Navigation with Clickable Submenu Accordions) */}
+      {/* Mobile Drawer (Responsive Navigation with In-Page Smooth Scroll) */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -370,119 +409,163 @@ export const LuxuryNavbar: React.FC = () => {
           >
             <div className="flex flex-col space-y-3">
               {/* Home */}
-              <div className="py-2 text-base font-semibold text-[#A9C7C2] cursor-default select-none border-b border-white/5">
+              <button
+                type="button"
+                onClick={() => scrollToSection('top')}
+                className="py-2 text-base font-semibold text-[#A9C7C2] text-left border-b border-white/5 cursor-pointer"
+              >
                 Home
-              </div>
+              </button>
 
               {/* About Us (Accordion) */}
               <div className="border-b border-white/5 pb-2">
-                <button
-                  type="button"
-                  onClick={() => toggleMobileSubmenu('about')}
-                  className="w-full flex items-center justify-between py-2 text-base font-semibold text-[#F4F7F6] hover:text-[#A9C7C2] text-left"
-                >
-                  <span>About Us</span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-[#A9C7C2] transition-transform ${
-                      mobileExpanded === 'about' ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
+                <div className="flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection('about')}
+                    className="py-2 text-base font-semibold text-[#F4F7F6] hover:text-[#A9C7C2] text-left cursor-pointer flex-grow"
+                  >
+                    About Us
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => toggleMobileSubmenu('about')}
+                    className="p-2 text-[#A9C7C2]"
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        mobileExpanded === 'about' ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                </div>
                 {mobileExpanded === 'about' && (
                   <div className="pl-3 py-2 space-y-2 text-xs text-[#CAD5D2] border-l-2 border-[#A9C7C2]/40 ml-2">
-                    <div>• Corporate Overview</div>
-                    <div>• Leadership & Vision</div>
-                    <div>• Core Philosophy</div>
-                    <div>• Global Delivery Model</div>
+                    <div onClick={() => scrollToSection('about')} className="cursor-pointer hover:text-[#F4F7F6]">• Corporate Overview</div>
+                    <div onClick={() => scrollToSection('about')} className="cursor-pointer hover:text-[#F4F7F6]">• Leadership & Vision</div>
+                    <div onClick={() => scrollToSection('about')} className="cursor-pointer hover:text-[#F4F7F6]">• Core Philosophy</div>
+                    <div onClick={() => scrollToSection('about')} className="cursor-pointer hover:text-[#F4F7F6]">• Global Delivery Model</div>
                   </div>
                 )}
               </div>
 
               {/* Our Services (Accordion) */}
               <div className="border-b border-white/5 pb-2">
-                <button
-                  type="button"
-                  onClick={() => toggleMobileSubmenu('services')}
-                  className="w-full flex items-center justify-between py-2 text-base font-semibold text-[#F4F7F6] hover:text-[#A9C7C2] text-left"
-                >
-                  <span>Our Services</span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-[#A9C7C2] transition-transform ${
-                      mobileExpanded === 'services' ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
+                <div className="flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection('services')}
+                    className="py-2 text-base font-semibold text-[#F4F7F6] hover:text-[#A9C7C2] text-left cursor-pointer flex-grow"
+                  >
+                    Our Services
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => toggleMobileSubmenu('services')}
+                    className="p-2 text-[#A9C7C2]"
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        mobileExpanded === 'services' ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                </div>
                 {mobileExpanded === 'services' && (
                   <div className="pl-3 py-2 space-y-2 text-xs text-[#CAD5D2] border-l-2 border-[#A9C7C2]/40 ml-2">
-                    <div>• SAP Rollout & S/4HANA</div>
-                    <div>• SAP Custom Solutions</div>
-                    <div>• SAP Support & AMS</div>
-                    <div>• SAP Integration & APIs</div>
-                    <div>• SAP Consulting & Strategy</div>
-                    <div>• CRM / ERP & Cloud IT</div>
+                    <div onClick={() => scrollToSection('services')} className="cursor-pointer hover:text-[#F4F7F6]">• SAP Rollout & S/4HANA</div>
+                    <div onClick={() => scrollToSection('services')} className="cursor-pointer hover:text-[#F4F7F6]">• SAP Custom Solutions</div>
+                    <div onClick={() => scrollToSection('services')} className="cursor-pointer hover:text-[#F4F7F6]">• SAP Support & AMS</div>
+                    <div onClick={() => scrollToSection('services')} className="cursor-pointer hover:text-[#F4F7F6]">• SAP Integration & APIs</div>
+                    <div onClick={() => scrollToSection('services')} className="cursor-pointer hover:text-[#F4F7F6]">• SAP Consulting & Strategy</div>
+                    <div onClick={() => scrollToSection('services')} className="cursor-pointer hover:text-[#F4F7F6]">• CRM / ERP & Cloud IT</div>
                   </div>
                 )}
               </div>
 
               {/* Industries (Accordion) */}
               <div className="border-b border-white/5 pb-2">
-                <button
-                  type="button"
-                  onClick={() => toggleMobileSubmenu('industries')}
-                  className="w-full flex items-center justify-between py-2 text-base font-semibold text-[#F4F7F6] hover:text-[#A9C7C2] text-left"
-                >
-                  <span>Industries</span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-[#A9C7C2] transition-transform ${
-                      mobileExpanded === 'industries' ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
+                <div className="flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection('industries')}
+                    className="py-2 text-base font-semibold text-[#F4F7F6] hover:text-[#A9C7C2] text-left cursor-pointer flex-grow"
+                  >
+                    Industries
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => toggleMobileSubmenu('industries')}
+                    className="p-2 text-[#A9C7C2]"
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        mobileExpanded === 'industries' ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                </div>
                 {mobileExpanded === 'industries' && (
                   <div className="pl-3 py-2 space-y-2 text-xs text-[#CAD5D2] border-l-2 border-[#A9C7C2]/40 ml-2">
-                    <div>• Manufacturing</div>
-                    <div>• Retail & Textile</div>
-                    <div>• Oil & Gas</div>
-                    <div>• Agro Chemical</div>
-                    <div>• Steel</div>
-                    <div>• Pharma</div>
+                    <div onClick={() => scrollToSection('industries')} className="cursor-pointer hover:text-[#F4F7F6]">• Manufacturing</div>
+                    <div onClick={() => scrollToSection('industries')} className="cursor-pointer hover:text-[#F4F7F6]">• Retail & Textile</div>
+                    <div onClick={() => scrollToSection('industries')} className="cursor-pointer hover:text-[#F4F7F6]">• Oil & Gas</div>
+                    <div onClick={() => scrollToSection('industries')} className="cursor-pointer hover:text-[#F4F7F6]">• Agro Chemical</div>
+                    <div onClick={() => scrollToSection('industries')} className="cursor-pointer hover:text-[#F4F7F6]">• Steel</div>
+                    <div onClick={() => scrollToSection('industries')} className="cursor-pointer hover:text-[#F4F7F6]">• Pharma</div>
                   </div>
                 )}
               </div>
 
               {/* SAP Training (Accordion) */}
               <div className="border-b border-white/5 pb-2">
-                <button
-                  type="button"
-                  onClick={() => toggleMobileSubmenu('training')}
-                  className="w-full flex items-center justify-between py-2 text-base font-semibold text-[#F4F7F6] hover:text-[#A9C7C2] text-left"
-                >
-                  <span>SAP Training</span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-[#A9C7C2] transition-transform ${
-                      mobileExpanded === 'training' ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
+                <div className="flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection('skills')}
+                    className="py-2 text-base font-semibold text-[#F4F7F6] hover:text-[#A9C7C2] text-left cursor-pointer flex-grow"
+                  >
+                    SAP Training
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => toggleMobileSubmenu('training')}
+                    className="p-2 text-[#A9C7C2]"
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        mobileExpanded === 'training' ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                </div>
                 {mobileExpanded === 'training' && (
                   <div className="pl-3 py-2 space-y-2 text-xs text-[#CAD5D2] border-l-2 border-[#A9C7C2]/40 ml-2">
-                    <div>• Functional Tracks (FICO, MM, SD, PP)</div>
-                    <div>• Technical Core (ABAP on HANA, Fiori)</div>
-                    <div>• Simulated Project Sessions</div>
+                    <div onClick={() => scrollToSection('skills')} className="cursor-pointer hover:text-[#F4F7F6]">• Functional Tracks (FICO, MM, SD, PP)</div>
+                    <div onClick={() => scrollToSection('skills')} className="cursor-pointer hover:text-[#F4F7F6]">• Technical Core (ABAP on HANA, Fiori)</div>
+                    <div onClick={() => scrollToSection('skills')} className="cursor-pointer hover:text-[#F4F7F6]">• Simulated Project Sessions</div>
                   </div>
                 )}
               </div>
 
               {/* Contact Us */}
-              <div className="py-2 text-base font-semibold text-[#F4F7F6] cursor-default select-none">
+              <button
+                type="button"
+                onClick={() => scrollToSection('contact')}
+                className="py-2 text-base font-semibold text-[#F4F7F6] hover:text-[#A9C7C2] text-left cursor-pointer"
+              >
                 Contact Us
-              </div>
+              </button>
 
               {/* Mobile CTA */}
               <div className="pt-4">
-                <div className="w-full py-3 rounded-xl bg-[#A9C7C2] text-[#052A29] font-bold text-sm tracking-wide text-center cursor-default select-none shadow-md">
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full py-3 rounded-xl bg-[#A9C7C2] hover:bg-[#C1DCD7] text-[#052A29] font-bold text-sm tracking-wide text-center cursor-pointer shadow-md transition-colors"
+                >
                   Get Consultation
-                </div>
+                </button>
               </div>
             </div>
           </motion.div>
