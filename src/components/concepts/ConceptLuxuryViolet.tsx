@@ -751,9 +751,19 @@ export const ConceptLuxuryViolet: React.FC = () => {
           </div>
 
           {/* All Three Original Subsections */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          >
             {/* Subsection 1 */}
-            <div className="rounded-3xl bg-white border border-[#A9C7C2]/35 p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <motion.div
+              variants={fadeInUp}
+              whileHover={{ y: -6, transition: { duration: 0.3 } }}
+              className="rounded-3xl bg-white border border-[#A9C7C2]/35 p-8 shadow-sm hover:shadow-xl hover:border-[#A9C7C2] transition-all duration-300 flex flex-col justify-between"
+            >
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#073B3A] text-[#A9C7C2] flex items-center justify-center mb-6 shadow-inner">
                   <TrendingUp className="w-6 h-6" />
@@ -777,10 +787,14 @@ export const ConceptLuxuryViolet: React.FC = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
 
             {/* Subsection 2 */}
-            <div className="rounded-3xl bg-white border border-[#A9C7C2]/35 p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <motion.div
+              variants={fadeInUp}
+              whileHover={{ y: -6, transition: { duration: 0.3 } }}
+              className="rounded-3xl bg-white border border-[#A9C7C2]/35 p-8 shadow-sm hover:shadow-xl hover:border-[#A9C7C2] transition-all duration-300 flex flex-col justify-between"
+            >
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#073B3A] text-[#A9C7C2] flex items-center justify-center mb-6 shadow-inner">
                   <BookOpen className="w-6 h-6" />
@@ -808,10 +822,14 @@ export const ConceptLuxuryViolet: React.FC = () => {
                   We focus on equipping you with the SAP expertise necessary for real-world achievement.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Subsection 3 */}
-            <div className="rounded-3xl bg-white border border-[#A9C7C2]/35 p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <motion.div
+              variants={fadeInUp}
+              whileHover={{ y: -6, transition: { duration: 0.3 } }}
+              className="rounded-3xl bg-white border border-[#A9C7C2]/35 p-8 shadow-sm hover:shadow-xl hover:border-[#A9C7C2] transition-all duration-300 flex flex-col justify-between"
+            >
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#073B3A] text-[#A9C7C2] flex items-center justify-center mb-6 shadow-inner">
                   <Cpu className="w-6 h-6" />
@@ -840,8 +858,8 @@ export const ConceptLuxuryViolet: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -874,7 +892,13 @@ export const ConceptLuxuryViolet: React.FC = () => {
           </div>
 
           {/* Exactly 6 Original Capability Blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {[
               {
                 title: 'SAP Consulting',
@@ -909,11 +933,13 @@ export const ConceptLuxuryViolet: React.FC = () => {
             ].map((block, idx) => {
               const Icon = block.icon;
               return (
-                <div
+                <motion.div
                   key={idx}
-                  className="p-8 rounded-3xl bg-[#052A29] border border-[#A9C7C2]/20 hover:border-[#A9C7C2]/60 transition-all duration-300 hover:-translate-y-1 group"
+                  variants={fadeInUp}
+                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                  className="p-8 rounded-3xl bg-[#052A29] border border-[#A9C7C2]/20 hover:border-[#A9C7C2]/70 hover:shadow-2xl hover:shadow-[#031D1C]/60 transition-all duration-300 group cursor-default"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-[#073B3A] border border-[#A9C7C2]/30 flex items-center justify-center text-[#A9C7C2] group-hover:bg-[#A9C7C2] group-hover:text-[#052A29] transition-colors mb-6 shadow-inner">
+                  <div className="w-12 h-12 rounded-2xl bg-[#073B3A] border border-[#A9C7C2]/30 flex items-center justify-center text-[#A9C7C2] group-hover:bg-[#A9C7C2] group-hover:text-[#052A29] group-hover:scale-110 transition-all duration-300 mb-6 shadow-inner">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-bold font-heading text-[#F4F7F6] mb-3 group-hover:text-[#A9C7C2] transition-colors">
@@ -922,10 +948,10 @@ export const ConceptLuxuryViolet: React.FC = () => {
                   <p className="text-xs sm:text-sm text-[#CAD5D2] leading-relaxed">
                     {block.desc}
                   </p>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -1145,7 +1171,13 @@ export const ConceptLuxuryViolet: React.FC = () => {
           </div>
 
           {/* Exactly 6 Original Sections in Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {[
               {
                 title: 'Process Optimization',
@@ -1180,11 +1212,13 @@ export const ConceptLuxuryViolet: React.FC = () => {
             ].map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div
+                <motion.div
                   key={idx}
-                  className="p-8 rounded-3xl bg-white border border-[#A9C7C2]/35 shadow-sm hover:border-[#A9C7C2] hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+                  variants={fadeInUp}
+                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                  className="p-8 rounded-3xl bg-white border border-[#A9C7C2]/35 shadow-sm hover:border-[#A9C7C2] hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-[#073B3A] text-[#A9C7C2] flex items-center justify-center mb-6 shadow-inner">
+                  <div className="w-12 h-12 rounded-2xl bg-[#073B3A] text-[#A9C7C2] flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-bold font-heading text-[#073B3A] mb-3">
@@ -1193,10 +1227,10 @@ export const ConceptLuxuryViolet: React.FC = () => {
                   <p className="text-xs sm:text-sm text-[#364845] leading-relaxed">
                     {item.desc}
                   </p>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -1224,11 +1258,19 @@ export const ConceptLuxuryViolet: React.FC = () => {
           </div>
 
           {/* Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {TESTIMONIALS.map((review, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="p-8 rounded-3xl bg-[#052A29] border border-[#A9C7C2]/20 hover:border-[#A9C7C2]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                variants={fadeInUp}
+                whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                className="p-8 rounded-3xl bg-[#052A29] border border-[#A9C7C2]/20 hover:border-[#A9C7C2]/60 hover:shadow-2xl hover:shadow-[#031D1C]/60 transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-1 text-[#A9C7C2]">
@@ -1248,9 +1290,9 @@ export const ConceptLuxuryViolet: React.FC = () => {
                   </div>
                   <div className="text-xs font-mono text-[#CAD5D2]">{review.role}</div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
