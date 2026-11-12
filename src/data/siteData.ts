@@ -170,7 +170,7 @@ export const INDUSTRIES: IndustryItem[] = [
     id: 'steel',
     name: 'Steel & Metallurgy',
     tagline: 'High-Volume Mill Logistics, Heat Tracking & Metal Yields',
-    image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1200&q=80',
     summary: 'Optimizing melt-shop to rolling-mill yields, heat-wise traceability, weighbridge integrations, and bulk commodity transit logistics.',
     challenges: [
       'Tracking heat numbers, chemical composition, and mechanical properties per slab/coil',
@@ -484,7 +484,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'E-commerce Solutions',
     slug: 'ecommerce-solutions',
     url: '/services1/Other Services/2',
-    image: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=800&q=80',
     shortDesc: 'High-conversion B2B and B2C digital storefronts engineered with real-time ERP inventory and payment gateway integration.',
     fullDesc: [
       'Empower your business to sell 24/7 across borders. ZisanTech designs and builds modern B2B distributor portals and consumer-facing B2C digital storefronts that handle massive catalogue volumes.',
@@ -548,7 +548,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'Digital Marketing & Growth',
     slug: 'digital-marketing',
     url: '/services1/Other Services/4',
-    image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
     shortDesc: 'Data-driven B2B lead generation, search engine optimization, content strategy, and performance campaign management.',
     fullDesc: [
       'Turn digital channels into reliable customer acquisition engines. ZisanTech provides structured digital marketing campaigns tailored to high-value enterprise and technology service providers.',
@@ -721,7 +721,7 @@ export const TRAINING_MODULES: TrainingItem[] = [
     code: 'SAP-QM',
     slug: 'sap-qm-training',
     url: '/trainingprogrammes/Functional Modules/4',
-    image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
     shortDesc: 'Master inspection lots, sampling procedures, quality certificates, defect recording, and audit management.',
     duration: '6 - 8 Weeks',
     format: 'Live Interactive Online + Lab Sandbox Access',

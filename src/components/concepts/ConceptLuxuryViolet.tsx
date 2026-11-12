@@ -109,7 +109,7 @@ export const PlatinumHeading: React.FC<{
 // 4 Cinematic Enterprise SAP & IT Technology Hero Slides
 const HERO_SLIDES = [
   {
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=85',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=85',
     category: 'SAP ENTERPRISE SOLUTIONS',
     headline: 'Transforming Businesses Through SAP & Technology',
     highlight: 'Technology',
@@ -119,7 +119,7 @@ const HERO_SLIDES = [
     statLabel: 'Enterprise Governance'
   },
   {
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=85',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=85',
     category: 'DIGITAL TRANSFORMATION & ERP',
     headline: 'Engineering Scalable S/4HANA Architectures',
     highlight: 'Architectures',
@@ -129,7 +129,7 @@ const HERO_SLIDES = [
     statLabel: 'Continuous AMS Support'
   },
   {
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=2000&q=85',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=85',
     category: 'ENTERPRISE IT CONSULTING',
     headline: 'Bridging Business Vision With Technology Execution',
     highlight: 'Execution',
@@ -158,9 +158,9 @@ const SERVICE_IMAGES: Record<number, string> = {
   4: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1000&q=80', // SAP Integration
   5: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80', // SAP Consulting
   6: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=80', // SAP E-Invoice & E-Way Bill
-  7: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1000&q=80', // SAP AI
+  7: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80', // SAP AI
   8: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80', // CRM / ERP Solutions
-  9: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1000&q=80', // E-commerce Solutions
+  9: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=1000&q=80', // E-commerce Solutions
   10: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80', // HRMS Solutions
   11: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=1000&q=80', // Digital Marketing & Growth
   12: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80' // App & Web Development
@@ -1078,7 +1078,7 @@ export const ConceptLuxuryViolet: React.FC = () => {
             </div>
           </div>
 
-          {/* Upgraded Service Cards Grid with Prominent Image Composition */}
+          {/* Upgraded Service Cards Grid with Prominent Image Composition & Premium Hover Animations */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredServices.map((service, index) => {
               const serviceImage = SERVICE_IMAGES[service.id] || service.image;
@@ -1086,29 +1086,33 @@ export const ConceptLuxuryViolet: React.FC = () => {
                 <motion.div
                   key={service.id}
                   onClick={() => scrollToSection('contact')}
-                  initial={{ opacity: 0, y: 22 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (index % 6) * 0.08 }}
-                  className="group relative rounded-3xl bg-[#052A29] border border-[#A9C7C2]/25 hover:border-[#A9C7C2]/70 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#031D1C]/60 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between cursor-pointer"
+                  whileHover={{ y: -8, transition: { duration: 0.35, ease: 'easeOut' } }}
+                  className="group relative rounded-3xl bg-[#052A29] border border-[#A9C7C2]/25 hover:border-[#A9C7C2] overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#031D1C]/80 transition-all duration-500 flex flex-col justify-between cursor-pointer"
                 >
-                  {/* Top Image Composition with Overlay & Hover Zoom */}
+                  {/* Top Image Composition with Interactive Overlay & Zoom Effect */}
                   <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#031D1C]">
                     <img
                       src={serviceImage}
                       alt={service.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 filter brightness-[0.8] group-hover:brightness-95"
+                      className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-115 group-hover:rotate-0.5 filter brightness-[0.82] contrast-105 group-hover:brightness-105 group-hover:contrast-110"
                     />
-                    {/* Gradient Overlay for Text Readability & Mood */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#052A29] via-[#052A29]/40 to-transparent"></div>
+                    {/* Multi-layer Gradient Overlay for Text Readability & Mood */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#052A29] via-[#052A29]/50 to-transparent group-hover:via-[#052A29]/20 transition-all duration-500"></div>
+
+                    {/* Shimmer light effect across the image on card hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-transparent via-white/10 to-transparent transition-opacity duration-700 pointer-events-none"></div>
 
                     {/* Category & Counter Badges */}
                     <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-[#052A29] font-bold bg-[#A9C7C2] px-3 py-1 rounded-full shadow-md">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-[#052A29] font-bold bg-[#A9C7C2] px-3 py-1 rounded-full shadow-md transition-transform duration-300 group-hover:scale-105">
                         {service.category}
                       </span>
-                      <span className="text-xs font-mono text-[#F4F7F6] bg-[#031D1C]/80 px-2.5 py-1 rounded-full backdrop-blur-md border border-white/10">
+                      <span className="text-xs font-mono text-[#F4F7F6] bg-[#031D1C]/80 px-2.5 py-1 rounded-full backdrop-blur-md border border-white/15 transition-colors duration-300 group-hover:border-[#A9C7C2]/50">
                         {service.id < 10 ? `0${service.id}` : service.id}
                       </span>
                     </div>
@@ -1117,11 +1121,12 @@ export const ConceptLuxuryViolet: React.FC = () => {
                   {/* Body Content with Upward Lift & Highlight on Hover */}
                   <div className="p-6 sm:p-7 flex flex-col justify-between flex-grow">
                     <div>
-                      <h3 className="text-xl font-bold font-heading text-[#F4F7F6] mb-3 group-hover:text-[#A9C7C2] transition-colors duration-300">
-                        {service.title}
+                      <h3 className="text-xl font-bold font-heading text-[#F4F7F6] mb-3 group-hover:text-[#A9C7C2] transition-colors duration-300 flex items-center justify-between">
+                        <span>{service.title}</span>
+                        <ArrowUpRight className="w-4 h-4 text-[#A9C7C2] opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
                       </h3>
 
-                      <p className="text-xs sm:text-sm text-[#CAD5D2] leading-relaxed mb-6 group-hover:text-[#DFE7E5] transition-colors duration-300">
+                      <p className="text-xs sm:text-sm text-[#CAD5D2] leading-relaxed mb-6 group-hover:text-[#F4F7F6] transition-colors duration-300">
                         {service.shortDesc}
                       </p>
                     </div>
@@ -1130,7 +1135,7 @@ export const ConceptLuxuryViolet: React.FC = () => {
                       <span className="font-semibold text-[#CAD5D2] group-hover:text-[#A9C7C2] transition-colors">
                         Enterprise Capability
                       </span>
-                      <div className="w-8 h-8 rounded-full bg-[#073B3A] border border-[#A9C7C2]/30 flex items-center justify-center text-[#A9C7C2] group-hover:bg-[#A9C7C2] group-hover:text-[#052A29] transition-all duration-300 group-hover:translate-x-1">
+                      <div className="w-8 h-8 rounded-full bg-[#073B3A] border border-[#A9C7C2]/30 flex items-center justify-center text-[#A9C7C2] group-hover:bg-[#A9C7C2] group-hover:text-[#052A29] group-hover:scale-110 transition-all duration-300 group-hover:translate-x-1 shadow-sm">
                         <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
